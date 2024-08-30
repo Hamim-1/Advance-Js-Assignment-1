@@ -42,27 +42,30 @@ function editTask(task) {
 
 function deleteTask(task) {
 
-    const checkbox = task.querySelector('p input');
+    if (editTaskTag === undefined) {
 
-    if (checkbox.checked) {
-        completedTaskNum--;
-        totalTaskNum--;
-        completedTask.innerText = completedTaskNum;
-        totalTask.innerText = totalTaskNum;
-    } else {
-        totalTaskNum--;
-        pendingTaskNum--;
-        totalTask.innerText = totalTaskNum;
-        pendingTask.innerText = pendingTaskNum;
+        const checkbox = task.querySelector('p input');
+
+        if (checkbox.checked) {
+            completedTaskNum--;
+            totalTaskNum--;
+            completedTask.innerText = completedTaskNum;
+            totalTask.innerText = totalTaskNum;
+        } else {
+            totalTaskNum--;
+            pendingTaskNum--;
+            totalTask.innerText = totalTaskNum;
+            pendingTask.innerText = pendingTaskNum;
+        }
+        list.removeChild(task);
+        const taskSerial = list.querySelectorAll('div h5');
+
+
+        taskSerial.forEach((taskNum, index) => {
+
+            taskNum.innerText = index + 1;
+        })
     }
-    list.removeChild(task);
-    const taskSerial = list.querySelectorAll('div h5');
-
-
-    taskSerial.forEach((taskNum, index) => {
-
-        taskNum.innerText = index + 1;
-    })
 
 }
 
@@ -104,6 +107,7 @@ function saveTask() {
         addBtn.style.display = 'inline-block';
         editTaskTag.innerHTML = userInput.value;
         userInput.value = '';
+        editTaskTag = undefined;
     }
 }
 
