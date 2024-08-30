@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="bg-slate-900 flex justify-center items-center h-screen">
+    <div class="w-3/4 h-[80vh] overflow-auto  bg-slate-800 text-white rounded-md p-10 flex flex-col items-center">
+        <h2 class="text-3xl border-b-2 pb-2 border-white">To-do List</h2>
+
+        <p class="mt-5 text-lg"><span id="total-task">0</span> Total,
+            <span id="completed-task">0</span> Completed,
+            <span id="pending-task">0</span> Pending
+        </p>
+
+        <div class="flex w-[90%] flex  gap-1 justify-center my-12">
+            <input placeholder="Add your task" type="text" autocomplete="off"
+                class="bg-transparent w-3/4 border-b-2 border-white pb-2 focus:outline-none px-5" id="user-input">
+            <button class="bg-slate-900 px-5 py-3 rounded-md font-bold" id="add-btn">Add</button>
+            <button class="bg-slate-900 px-5 py-3 rounded-md font-bold hidden" id="save-btn">Save</button>
+        </div>
+
+        <div class="w-[90%] flex flex-col space-y-5" id="list">
+
+            <div class="w-full flex justify-between">
+                <p class="w-[15%] text-center">Num</p>
+                <p class="w-[35%] text-center">task</p>
+                <p class="w-[15%] text-center">Date</p>
+                <p class="w-[15%] text-center">Status</p>
+                <p class="w-[15%] text-center">Delete</p>
+                <p class="w-[5%] text-center"></p>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+<script src="js/script.js"></script>
+
+</html>
